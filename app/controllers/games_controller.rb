@@ -60,7 +60,7 @@ class GamesController < ApplicationController
   private
 
   def set_game
-    @game = Game.find(params[:id])
+    @game = Game.find_by(token: params[:token])
   end
 
   # Only allow a list of trusted parameters through.
