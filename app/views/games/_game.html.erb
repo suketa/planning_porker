@@ -10,7 +10,10 @@
   </p>
 </div>
 <% if @player.new_record? %>
-  <%= render partial: "players/form", locals: {player: @player} %>
+  <%= turbo_frame_tag 'player_new' do %>
+    <%= render partial: "players/form", locals: {player: @player} %>
+  <% end %>
 <% else %>
   <%= render partial: "players/index", locals: {players: @players} %>
+  <%= turbo_stream_from "#{@player.game.token}/players" %>
 <% end %>
