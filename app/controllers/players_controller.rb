@@ -8,6 +8,7 @@ class PlayersController < ApplicationController
 
   # GET /players/1 or /players/1.json
   def show
+    @players = @player.game.players
   end
 
   # GET /players/new
@@ -26,8 +27,9 @@ class PlayersController < ApplicationController
     respond_to do |format|
       if @player.save
         session[:player_id] = @player.id
-        format.html { redirect_to player_url(@player), notice: "Player was successfully created." }
-        format.json { render :show, status: :created, location: @player }
+        @player.broadcast_append_to "#{@player.game.token}/players"
+        format.html { redirect_to player_url(@player) }
+        # format.json { render :show, status: :created, location: @player }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @player.errors, status: :unprocessable_entity }

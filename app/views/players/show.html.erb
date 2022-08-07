@@ -1,6 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @player %>
+<%= turbo_frame_tag 'player_new' do %>
+  <%= render partial: "players/index", locals: {players: @players} %>
+  <%= turbo_stream_from "#{@player.game.token}/players" %>
+<%end%>
 
 <div>
   <%= link_to "Edit this player", edit_player_path(@player) %> |
