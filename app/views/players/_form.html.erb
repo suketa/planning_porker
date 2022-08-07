@@ -16,10 +16,7 @@
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :game_id, style: "display: block" %>
-    <%= form.text_field :game_id %>
-  </div>
+  <%= form.hidden_field :game_id %>
 
   <div>
     <%= form.submit %>
