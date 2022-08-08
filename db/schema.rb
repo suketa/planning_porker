@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_06_043648) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_07_232934) do
+  create_table "estimates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "point"
+    t.bigint "player_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_estimates_on_player_id"
+  end
+
   create_table "games", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "token", null: false
     t.string "name"
@@ -27,5 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_06_043648) do
     t.index ["game_id"], name: "index_players_on_game_id"
   end
 
+  add_foreign_key "estimates", "players"
   add_foreign_key "players", "games"
 end
