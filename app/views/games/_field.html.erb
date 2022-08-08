@@ -1,0 +1,4 @@
+<%= render partial: "estimates/form" %>
+<%= render partial: "players/index", locals: {players: players} %>
+<%= turbo_stream_from "#{player.game.token}/players" %>
+
