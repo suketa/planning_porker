@@ -1,0 +1,6 @@
+<% %w(1 2 3 5 8 13 21 34 55).each do |n| %>
+  <%= form_with(url: estimates_url, scope: :estimate) do |f| %>
+    <%= f.hidden_field :point,  value: n %>
+    <%= f.submit(n) %>
+  <% end %>
+<% end %>
