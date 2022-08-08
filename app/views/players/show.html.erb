@@ -1,13 +1,3 @@
-<%= render @player %>
 <%= turbo_frame_tag 'player_new' do %>
-  <%= render partial: "estimates/form" %>
-  <%= render partial: "players/index", locals: {players: @players} %>
-  <%= turbo_stream_from "#{@player.game.token}/players" %>
+  <%= render partial: "games/field", locals: {player: @player, players: @players} %>
 <%end%>
-
-<div>
-  <%= link_to "Edit this player", edit_player_path(@player) %> |
-  <%= link_to "Back to players", players_path %>
-
-  <%= button_to "Destroy this player", @player, method: :delete %>
-</div>
