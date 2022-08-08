@@ -7,6 +7,7 @@
       <%= link_to "Show this player", player %>
     </p>
   <% end %>
+  <%= turbo_stream_from "#{@player.game.token}/players" %>
 </div>
 
 <%= link_to "New player", new_player_path %>
