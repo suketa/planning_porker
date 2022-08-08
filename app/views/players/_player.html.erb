@@ -1,6 +1,5 @@
 <div id="<%= dom_id player %>">
-  <p>
-    <strong>Name:</strong>
-    <%= player.name %>
-  </p>
+  <strong>Name:</strong>
+  <%= player.name %>
 </div>
+<div id="<%= "#{player.id}_estimate" %>"><%= player.estimates&.first&.point %></div>
