@@ -9,4 +9,6 @@ class PointStatus < ApplicationRecord
       'open_point'
     end
   end
+
+  broadcasts_to :game
 end

@@ -1,4 +1,4 @@
+<%= turbo_stream_from player.game %>
 <%= render partial: "estimates/form" %>
 <%= render partial: "point_statuses/form", locals: {point_status: point_status}%>
 <%= render partial: "players/index", locals: {players: players} %>
-<%= turbo_stream_from "#{player.game.token}/players" %>
