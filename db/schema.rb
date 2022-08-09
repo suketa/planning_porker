@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_07_232934) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_09_033632) do
   create_table "estimates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "point"
     t.bigint "player_id", null: false
@@ -35,6 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_07_232934) do
     t.index ["game_id"], name: "index_players_on_game_id"
   end
 
+  create_table "point_statuses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_point_statuses_on_game_id"
+  end
+
   add_foreign_key "estimates", "players"
   add_foreign_key "players", "games"
+  add_foreign_key "point_statuses", "games"
 end

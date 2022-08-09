@@ -2,4 +2,8 @@
   <strong>Name:</strong>
   <%= player.name %>
 </div>
-<div id="<%= "#{player.id}_estimate" %>"><%= player.estimates&.first&.point %></div>
+<div class="point-area">
+  <div id="<%= "#{player.id}_estimate" %>" class="point">
+    <%= player.estimates&.first&.point %>
+  </div>
+</div>

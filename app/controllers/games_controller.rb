@@ -11,6 +11,7 @@ class GamesController < ApplicationController
     @player = @game.players.where(id: session[:player_id]).first if session[:player_id].present?
     @player = Player.new(game: @game) if @player.blank?
     @players = @game.players
+    @point_status = @game.point_status || PointStatus.new(game: @game)
   end
 
   # GET /games/new
