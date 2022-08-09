@@ -28,7 +28,7 @@ class PlayersController < ApplicationController
     respond_to do |format|
       if @player.save
         session[:player_id] = @player.id
-        @player.broadcast_append_to "#{@player.game.token}/players"
+        @player.broadcast_append_to @player.game
         format.html { redirect_to player_url(@player) }
         # format.json { render :show, status: :created, location: @player }
       else

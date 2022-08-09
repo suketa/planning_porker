@@ -5,7 +5,7 @@ class PointStatusesController < ApplicationController
     point_status = game.point_status || PointStatus.new(game: game)
     point_status.status = point_status_params[:status].to_i
     if point_status.save!
-      point_status.broadcast_replace_to "#{game.token}/players", target: 'point_status'
+      point_status.broadcast_replace_to game, target: 'point_status'
     end
   end
 
