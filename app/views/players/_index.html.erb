@@ -13,9 +13,11 @@
   opacity: 0;
 }
 </style>
-<div id="point_status" class="<%= point_status.status_class %>"></div>
-<div id="players">
-  <% players.each do |player| %>
-    <%= render player %>
-  <% end %>
+<div data-controller="reset" data-reset-property-value="innerHTML" data-reset-reset-value="">
+  <div id="point_status" data-reset-target="pointStatus" class="<%= point_status.status_class %>"></div>
+  <div id="players">
+    <% players.each do |player| %>
+      <%= render player %>
+    <% end %>
+  </div>
 </div>
