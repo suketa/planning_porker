@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
   has_many :players, dependent: :destroy
+  has_one :point_status, dependent: :destroy
 
   before_validation :set_token, on: :create
 

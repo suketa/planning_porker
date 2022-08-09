@@ -9,6 +9,7 @@ class PlayersController < ApplicationController
   # GET /players/1 or /players/1.json
   def show
     @players = @player.game.players
+    @point_status = @player.game.point_status || PointStatus.new(game: @player.game)
   end
 
   # GET /players/new

@@ -1,0 +1,19 @@
+<style>
+.point-area {
+  width: 5rem;
+}
+.open_point~#players > .point-area > .point {
+  opacity: 1;
+}
+.hide_point~#players > .point-area {
+  background-color: black;
+}
+.hide_point~#players > .point-area > .point {
+  opacity: 0;
+}
+</style>
+<div id="point_status" class="<%= point_status.status_class %>"></div>
+<%= form_with(url: point_statuses_url, model: point_status, method: :post ) do |f| %>
+  <%= f.hidden_field :status, value: '1' %>
+  <%= f.submit 'open' %>
+<% end %>
