@@ -14,7 +14,7 @@
 }
 </style>
 <div data-controller="reset" data-reset-property-value="innerHTML" data-reset-reset-value="">
-  <%= render :partial => 'point_statuses/point_status', locals: { point_status: point_status } %>
+  <%= render point_status %>
   <div id="players">
     <% players.each do |player| %>
       <%= render player %>
