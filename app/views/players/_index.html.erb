@@ -1,5 +1,19 @@
 <h1>Players</h1>
-
+<style>
+.point-area {
+  width: 5rem;
+}
+.open_point~#players > .point-area > .point {
+  opacity: 1;
+}
+.hide_point~#players > .point-area {
+  background-color: black;
+}
+.hide_point~#players > .point-area > .point {
+  opacity: 0;
+}
+</style>
+<div id="point_status" class="<%= point_status.status_class %>"></div>
 <div id="players">
   <% players.each do |player| %>
     <%= render player %>
