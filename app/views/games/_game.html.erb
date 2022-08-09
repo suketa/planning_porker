@@ -9,5 +9,5 @@
     <%= render partial: "players/form", locals: {player: @player} %>
   <% end %>
 <% else %>
-  <%= render partial: "games/field", locals: {player: @player, players: @players, point_status: @point_status} %>
+  <%= render partial: "games/field", locals: {myself:@player, player: @player, players: @players, point_status: @point_status} %>
 <% end %>

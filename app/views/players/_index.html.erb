@@ -17,7 +17,14 @@
   <%= render point_status %>
   <div id="players">
     <% players.each do |player| %>
-      <%= render player %>
+      <% if myself.id == player.id %>
+        <div class="myself">
+          <%= render player %>
+        </div>
+      <% else %>
+        <%= render player %>
+      <% end %>
     <% end %>
   </div>
 </div>
+<%= myself.id %>
