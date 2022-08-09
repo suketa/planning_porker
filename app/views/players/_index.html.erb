@@ -14,7 +14,7 @@
 }
 </style>
 <div data-controller="reset" data-reset-property-value="innerHTML" data-reset-reset-value="">
-  <div id="point_status" data-reset-target="pointStatus" class="<%= point_status.status_class %>"></div>
+  <%= render point_status %>
   <div id="players">
     <% players.each do |player| %>
       <%= render player %>
