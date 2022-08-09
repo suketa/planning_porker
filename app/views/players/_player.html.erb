@@ -3,7 +3,7 @@
   <%= player.name %>
 </div>
 <div class="point-area">
-  <div id="<%= "#{player.id}_estimate" %>" class="point">
+  <div id="<%= "#{player.id}_estimate" %>" class="point" data-reset-target="point">
     <%= player.estimates&.first&.point %>
   </div>
 </div>
