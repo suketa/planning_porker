@@ -1,0 +1,9 @@
+.estimate_buttons {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(3rem, 1fr));
+  column-gap: 10px;
+}
+.estimate_buttons input[type="submit"] {
+  width: 3rem;
+}
+
