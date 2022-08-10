@@ -1,0 +1,15 @@
+.game_buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  justify-content: end;
+}
+.game_buttons form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.game_buttons input[type="submit"] {
+  width: 100%;
+}
+
