@@ -1,26 +1,8 @@
-<style>
-.point-area {
-  width: 5rem;
-}
-.open_point~#players > .point-area > .point {
-  opacity: 1;
-}
-.hide_point~#players > .point-area {
-  background-color: black;
-}
-.hide_point~#players > .point-area > .point {
-  opacity: 0;
-}
-</style>
 <div data-controller="reset" data-reset-property-value="innerHTML" data-reset-reset-value="">
   <%= render point_status %>
   <div id="players">
     <% players.each do |player| %>
-      <% if myself.id == player.id %>
-        <div class="myself">
-          <%= render player %>
-        </div>
-      <% else %>
+      <%= content_tag :div, class: { myself: myself.id == player.id } do %>
         <%= render player %>
       <% end %>
     <% end %>

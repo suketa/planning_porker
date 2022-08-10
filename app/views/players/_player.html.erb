@@ -1,9 +1,10 @@
-<div id="<%= dom_id player %>">
-  <strong>Name:</strong>
-  <%= player.name %>
-</div>
-<div class="point-area">
-  <div id="<%= "#{player.id}_estimate" %>" class="point" data-reset-target="point">
-    <%= player.estimates&.first&.point %>
+<div class="player">
+  <div id="<%= dom_id player %>" class="player_name">
+    <%= player.name %>
+  </div>
+  <div class="point_area">
+    <div id="<%= "#{player.id}_estimate" %>" class="point" data-reset-target="point">
+      <%= player.estimates&.first&.point %>
+    </div>
   </div>
 </div>
