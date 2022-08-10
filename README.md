@@ -1,14 +1,3 @@
-# README
+# Planning Porker
 
-- games
-  - name
-  - token
-- players
-  - name
-  - game_id
-- tasks
-  - name
-- estimates
-  - point
-  - task_id
-  - player_id
+is a simple web application for planning porker written using Ruby on Rails framework.
