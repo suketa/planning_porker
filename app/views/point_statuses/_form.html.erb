@@ -1,8 +1,10 @@
-<%= form_with(url: point_statuses_url, model: point_status, method: :post ) do |f| %>
-  <%= f.hidden_field :status, value: '1' %>
-  <%= f.submit 'open' %>
-<% end %>
-<%= form_with(url: point_statuses_url, model: point_status, method: :post ) do |f| %>
-  <%= f.hidden_field :status, value: '0' %>
-  <%= f.submit 'reset' %>
-<% end %>
+<div class="game_buttons">
+  <%= form_with(url: point_statuses_url, model: point_status, method: :post ) do |f| %>
+    <%= f.hidden_field :status, value: '1' %>
+    <%= f.submit 'open' %>
+  <% end %>
+  <%= form_with(url: point_statuses_url, model: point_status, method: :post ) do |f| %>
+    <%= f.hidden_field :status, value: '0' %>
+    <%= f.submit 'reset' %>
+  <% end %>
+</div>
