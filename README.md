@@ -4,6 +4,8 @@ is a web application for planning porker written using [Ruby on Rails](https://g
 It is SPA like web application using [Hotwire](https://hotwired.dev/)
 ([Turbo](https://github.com/hotwired/turbo-rails) and [Stimulus](https://github.com/hotwired/stimulus)).
 
+This project is learning for Ruby on Rails, especially Hotwire and it is *NOT* production ready.
+
 ## How to run locally
 
 ```shell
