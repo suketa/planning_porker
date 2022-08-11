@@ -1,14 +1,35 @@
 version: '3'
 
+x-backend: &backend
+  build:
+    context: .
+    dockerfile: ./docker/x-backend/Dockerfile
+  stdin_open: true
+  tty: true
+  volumes:
+    - .:/app:cached
+    - bundle:/usr/local/bundle
+    - rails_cache:/app/tmp/cache
+    - history:/usr/local/hist
+  environment:
+    HISTFILE: /usr/local/hist/.bash_history
+    IRB_HISTFILE: /usr/local/hist/.irb_history
+    EDITOR: vi
+
 services:
+  app:
+    <<: *backend
+    depends_on:
+      - db
+
   web:
-    build: .
+    <<: *backend
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0"
     ports:
-      - "3000:3000"
-    volumes:
-      - .:/app
-      - bundle:/usr/local/bundle
-    tty: true
+      - '3000:3000'
+    depends_on:
+      - db
+
   db:
     image: mysql:8.0.30
     command: --default-authentication-plugin=mysql_native_password
@@ -19,6 +40,6 @@ services:
 
 volumes:
   mysqldb:
-    driver: local
   bundle:
-    driver: local
+  history:
+  rails_cache:
