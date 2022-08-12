@@ -5,8 +5,7 @@ class GamesController < ApplicationController
 
   # GET /games/1 or /games/1.json
   def show
-    @player = @game.players.where(id: session[:player_id]).first if session[:player_id].present?
-    @player = Player.new(game: @game) if @player.blank?
+    @player = @game.players.find_or_initialize_by(id: session[:player_id])
     @players = @game.players
     @point_status = @game.point_status || PointStatus.new(game: @game)
   end
