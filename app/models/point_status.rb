@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PointStatus < ApplicationRecord
   belongs_to :game
 
